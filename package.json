@@ -1,0 +1,54 @@
+{
+  "name": "discordts-template",
+  "version": "1.0.0",
+  "description": "A discord bot template for typescript, start building as soon as possible!",
+  "main": "build/index.js",
+  "private": true,
+  "config": {
+    "daemon": "DiscordTS-Template"
+  },
+  "scripts": {
+    "build:dev": "tsc --watch",
+    "prebuild": "rm -rf ./build",
+    "build": "tsc",
+    "format": "eslint '*/**/*.{js,ts,tsx}' --fix && prettier --write .",
+    "start": "pm2 start build/index.js --name $npm_package_config_daemon",
+    "poststart": "npm run logs",
+    "save": "pm2 save --force",
+    "restart": "npm stop && npm start",
+    "prestop": "npm run flush",
+    "stop": "pm2 stop $npm_package_config_daemon ",
+    "poststop": "pm2 delete $npm_package_config_daemon && npm run save",
+    "logs": "pm2 logs --name $npm_package_config_daemon",
+    "status": "pm2 status --name $npm_package_config_daemon",
+    "list": "pm2 list",
+    "flush": "pm2 flush $npm_package_config_daemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leivaa21/discordts-template"
+  },
+  "bugs": {
+    "url": "https://github.com/leivaa21/discordts-template/issues"
+  },
+  "homepage": "https://github.com/leivaa21/discordts-template#readme",
+  "keywords": [],
+  "author": "Leivaa21",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.0"
+  },
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "fs": "^0.0.1-security",
+    "pm2": "^5.1.2",
+    "replace-json-property": "^1.8.0"
+  }
+}

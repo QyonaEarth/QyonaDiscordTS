@@ -14,21 +14,21 @@ function errMessage(From: string, Message: string): string {
 }
 
 export class consoleLogger implements Logger {
-  private static readonly successHolder: string = 'OK';
-  private static readonly errorHolder: string = 'ERROR';
-  private static readonly warningHolder: string = 'WARN';
-  private static readonly infoHolder: string = 'INFO';
+  private readonly identifier: string;
+  constructor(identifier: string) {
+    this.identifier = identifier;
+  }
 
   success(message: string): void {
-    console.log(okMessage(consoleLogger.successHolder, message));
+    console.log(okMessage(this.identifier, message));
   }
   warning(message: string): void {
-    console.warn(warnMessage(consoleLogger.warningHolder, message));
+    console.warn(warnMessage(this.identifier, message));
   }
   info(message: string): void {
-    console.info(infoMessage(consoleLogger.infoHolder, message));
+    console.info(infoMessage(this.identifier, message));
   }
   error(message: string): void {
-    console.error(errMessage(consoleLogger.errorHolder, message));
+    console.error(errMessage(this.identifier, message));
   }
 }

@@ -7,14 +7,20 @@ import ServiceLoader from '../interfaces/ServiceLoader';
 
 class CommandsLoader implements ServiceLoader {
   public readonly dirname: string;
-  public readonly target: string = '../services/commands';
+  public readonly target: string;
   public filesLoaded = 0;
 
-  constructor(dirname: string) {
+  constructor(dirname: string, target: string) {
     this.dirname = dirname;
+    this.target = target;
   }
   public load(bot: Bot) {
-    const directory: string = join(this.dirname, this.target);
+    const directory: string = join(
+      this.dirname,
+      '../bots/',
+      this.target,
+      '/services/commands'
+    );
     const commandsFiles: string[] = fs
       .readdirSync(directory)
       .filter((file) => file.endsWith('.js'));

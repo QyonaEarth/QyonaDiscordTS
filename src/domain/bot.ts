@@ -45,17 +45,17 @@ class Bot extends Client {
   /**
    * The client of our bot (Using Client class from discord.js)
    */
-  public readonly unknown: string = 'Unkown-Bot';
+  public readonly BotIdentifier: string;
   public config = {} as ConfigInterface;
   private readonly configLoader: ConfigLoader = new ConfigJSONLoader();
 
-  public readonly logger: Logger = new consoleLogger();
+  public readonly logger: Logger;
 
   public commands: Collection<string, Command> = new Collection();
   public events: Collection<string, Event> = new Collection();
 
-  private commandLoader: CommandsLoader = new CommandsLoader(__dirname);
-  private eventLoader: EventsLoader = new EventsLoader(__dirname);
+  private commandLoader: CommandsLoader;
+  private eventLoader: EventsLoader;
 
   /**
    * Public constructor of the bot,
@@ -67,10 +67,18 @@ class Bot extends Client {
    * @see https://discord.com/developers/docs/intro
    */
 
-  public constructor(token: string, options?: ClientOptions) {
+  public constructor(
+    token: string,
+    indentifier: string,
+    options?: ClientOptions
+  ) {
     super(options != undefined ? options : botOptions);
     this.token = token;
     this.config = this.configLoader.load();
+    this.BotIdentifier = indentifier;
+    this.logger = new consoleLogger(this.BotIdentifier);
+    this.commandLoader = new CommandsLoader(__dirname, this.BotIdentifier);
+    this.eventLoader = new EventsLoader(__dirname, this.BotIdentifier);
   }
   public start() {
     this.login(this.token ? this.token : '');

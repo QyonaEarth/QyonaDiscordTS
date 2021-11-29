@@ -1,5 +1,5 @@
 import { Message } from 'discord.js';
-import { Execute } from '../../domain/interfaces/Event';
+import { Execute } from '../../../../domain/interfaces/Event';
 
 export const name = 'messageLogger';
 export const trigger = 'messageCreate';

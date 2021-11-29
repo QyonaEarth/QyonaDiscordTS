@@ -1,6 +1,6 @@
 import { Message } from 'discord.js';
-import { Bot } from '../../domain/bot';
-import { Execute } from '../../domain/interfaces/Command';
+import { Bot } from '../../../../domain/bot';
+import { Execute } from '../../../../domain/interfaces/Command';
 
 export const name = 'prefix';
 export const description = 'Changes the prefix';

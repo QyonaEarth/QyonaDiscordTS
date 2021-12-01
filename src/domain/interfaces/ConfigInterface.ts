@@ -3,4 +3,5 @@ export interface ConfigInterface {
   ip: string;
   infoChannelID: string;
   welcomeChannelID: string;
+  suggestChannelID: string;
 }

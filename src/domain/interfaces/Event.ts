@@ -1,8 +1,8 @@
-import { Message } from 'discord.js';
+import { GuildMember, Message } from 'discord.js';
 import { Bot } from '../bot';
 
 export interface Execute {
-  (bot: Bot, message: Message, args?: string[]): void;
+  (bot: Bot, message: Message, member?: GuildMember): Promise<void>;
 }
 
 export interface Event {

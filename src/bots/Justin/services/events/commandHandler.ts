@@ -28,4 +28,5 @@ export const execute: Execute = async (bot, message: Message) => {
     : undefined;
   if (!command) return;
   command.execute(bot, message, args);
+  return;
 };

@@ -2,6 +2,7 @@ import { Execute } from '../../../../domain/interfaces/Event';
 
 export const execute: Execute = async (bot) => {
   bot.logger.success(`${bot.user?.tag} logged in!`);
+  return;
 };
 export const name = 'ready';
 export const trigger = 'ready';

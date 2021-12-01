@@ -11,10 +11,12 @@ export const execute: Execute = async (
   args?: string[]
 ) => {
   if (!args || !args[0] || args.length > 1) {
-    return await message.reply(
+    await message.reply(
       `Correct ussage ${bot.config.prefix}prefix {new_prefix}!`
     );
+    return;
   }
   bot.updateConfig('prefix', args[0]);
-  return await message.reply(`Prefix updated to ${args[0]}`);
+  await message.reply(`Prefix updated to ${args[0]}`);
+  return;
 };

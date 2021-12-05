@@ -74,7 +74,7 @@ class Bot extends Client {
   ) {
     super(options != undefined ? options : botOptions);
     this.token = token;
-    this.loadConfig()
+    this.loadConfig();
     this.BotIdentifier = indentifier;
     this.logger = new consoleLogger(this.BotIdentifier);
     this.commandLoader = new CommandsLoader(__dirname, this.BotIdentifier);
@@ -97,7 +97,7 @@ class Bot extends Client {
     else this.logger.warning(`Loaded ${this.events.size} events!`);
   }
 
-  public loadConfig(){
+  public loadConfig() {
     this.config = this.configLoader.load();
   }
   public updateConfig(param: string, value: string): void {

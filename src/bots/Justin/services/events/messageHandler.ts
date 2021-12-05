@@ -7,11 +7,7 @@ export const trigger = 'messageCreate';
 export const description = 'Logs on console all the messages the bot receive';
 
 export const execute: Execute = async (bot, message: Message) => {
-  if (
-    message.author.bot ||
-    !message.guild
-  )
-    return;
+  if (message.author.bot || !message.guild) return;
 
   //get rid of the prefix and separating the content on an array so it's easier to work with it
   const args: string[] = message.content
@@ -23,14 +19,19 @@ export const execute: Execute = async (bot, message: Message) => {
     args[0] != undefined ? args[0].toLowerCase() : 'null';
   args.shift();
 
-  if(message.channelId == bot.config.suggestChannelID && UserCommand!='sugerencia') {
-    const response:Message<boolean> = await message.channel.send(`<@${message.author.id}> En este lugar solo se admiten sugerencias!`)
+  if (
+    message.channelId == bot.config.suggestChannelID &&
+    UserCommand != 'sugerencia'
+  ) {
+    const response: Message<boolean> = await message.channel.send(
+      `<@${message.author.id}> En este lugar solo se admiten sugerencias!`
+    );
     setTimeout(() => response.delete(), 3 * 1000);
     message.delete();
-    return
-  };
+    return;
+  }
 
-  if(    !message.content.startsWith(bot.config.prefix) )return;
+  if (!message.content.startsWith(bot.config.prefix)) return;
 
   const command: Command | undefined = bot.commands.get(UserCommand)
     ? bot.commands.get(UserCommand)

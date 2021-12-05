@@ -20,22 +20,23 @@ export const execute: Execute = async (bot:Bot, message:Message) => {
         const sugerencia :string|undefined = args.slice(1).join(' ');
         let embed = new infoEmbed()
 
-        if(sugerencia){
-            embed.setTitle(`Sugerencia de ${message.member.user.username}!`)
-            embed.setBody(`${sugerencia}`)
-            embed.addField('Si estas a favor', 'Reacciona con ✅')
-            embed.addField('Si estas en contra', 'Reacciona con ❌')
-            
-            let MessageEmbed = await channel.send({ embeds: [embed.embed] })
-            MessageEmbed.react('✅')
-            MessageEmbed.react('❌')
+        if(!sugerencia){
+            const response:Message<boolean> = await message.channel.send(`<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}sugerencias {Tu sugerencia}!!`)
+            setTimeout(() => response.delete(), 3 * 1000)
+            message.delete();
             return;
         }
-        else{
-            const response:Message<boolean> = await message.channel.send(`<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}sugerencias {Tu sugerencia}!!`)
-            setTimeout(() => response.delete(), 3 * 1000);
-            
-        }
 
-        message.delete()
+        embed.setTitle(`Sugerencia de ${message.member.user.username}!`)
+        embed.setBody(`${sugerencia}`)
+        embed.addField('Si estas a favor', 'Reacciona con ✅')
+        embed.addField('Si estas en contra', 'Reacciona con ❌')
+        
+        let MessageEmbed = await channel.send({ embeds: [embed.embed] })
+        MessageEmbed.react('✅')
+        MessageEmbed.react('❌')
+        message.delete();
+        return;
+
+        
     }

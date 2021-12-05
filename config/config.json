@@ -1,7 +1,10 @@
 {
   "prefix": "!",
   "ip": "qyonasearth.es",
+  "QyonaSvLogo": "https://i.imgur.com/L8Scn33.png",
   "infoChannelID": "834712578802450452",
   "welcomeChannelID": "912058475918553109",
-  "suggestChannelID":"912774208520609862"
+  "suggestChannelID": "912774208520609862",
+  "statusChannelID": "915683751919509535",
+  "statusMessageID": "916841813833285632"
 }

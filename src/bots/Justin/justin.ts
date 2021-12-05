@@ -40,7 +40,7 @@ async function HandleStatusOutCome(res:JavaStatusResponse|undefined){
         }
         const statusMessage:Message|undefined = (await statusChannel.messages.fetch()).find(m => m.id == Justin.config.statusMessageID)
         if(!statusMessage) {
-            let newMessage = await statusChannel.send({embeds: [getStatusEmbed(res)] })
+            let newMessage = await statusChannel.send({embeds: [await getStatusEmbed(res)] })
             Justin.updateConfig('statusMessageID', newMessage.id )
             lastStatus = res;
             return;
@@ -48,12 +48,14 @@ async function HandleStatusOutCome(res:JavaStatusResponse|undefined){
 
         if( (!lastStatus && res) || (lastStatus && res && lastStatus.players.online != res.players.online) || (lastStatus && !res) ){
             lastStatus = res;
-            statusMessage.edit({embeds: [getStatusEmbed(res)] })
+            
+
+            statusMessage.edit({embeds: [await getStatusEmbed(res)] })
         }
 }
 
 
-function getStatusEmbed(res:JavaStatusResponse|undefined):MessageEmbed{
+async function getStatusEmbed(res:JavaStatusResponse|undefined):Promise<MessageEmbed>{
     let embed = new MessageEmbed()
     if(!res){
         embed.setColor('#ff0000' as ColorResolvable)
@@ -68,6 +70,18 @@ function getStatusEmbed(res:JavaStatusResponse|undefined):MessageEmbed{
     embed.setThumbnail(Justin.config.QyonaSvLogo)
     embed.setDescription('Apresurate! Te estan esperando muchas aventuras dentro de las tierras de Qyona!')
     embed.addField('Aventureros activos', `${res.players.online}/${res.players.max}`)
+
+    if(!res.players.sample || res.players.sample.length==0){
+        return embed;
+    }
+
+    let userString:string= ''
+    for(let it:number = 0 ; it<res.players.sample.length; it++){
+        userString += `${res.players.sample[it].name}`
+        if(it!=res.players.sample.length-1) userString+= ', '
+    }
+
+    embed.addField('Lista de Aventureros', userString)
 
     return embed;
 }

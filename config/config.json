@@ -1,5 +1,6 @@
 {
   "prefix": "!",
+  "maxDeleting":"20",
   "ip": "qyonasearth.es",
   "QyonaSvLogo": "https://i.imgur.com/L8Scn33.png",
   "infoChannelID": "834712578802450452",

@@ -1,4 +1,4 @@
-import { GuildMember, Message, User } from 'discord.js';
+import { GuildMember, Message } from 'discord.js';
 import { Command } from '../../../../domain/interfaces/Command';
 import { Execute } from '../../../../domain/interfaces/Event';
 
@@ -14,8 +14,10 @@ export const execute: Execute = async (bot, message: Message) => {
   )
     return;
 
-  const user:GuildMember|undefined = message.guild.members.cache.find(user => user.id === message.author.id )
-  if(!user || !user.permissions.has('ADMINISTRATOR')) return;
+  const user: GuildMember | undefined = message.guild.members.cache.find(
+    (user) => user.id === message.author.id
+  );
+  if (!user || !user.permissions.has('ADMINISTRATOR')) return;
 
   //get rid of the prefix and separating the content on an array so it's easier to work with it
   const args: string[] = message.content

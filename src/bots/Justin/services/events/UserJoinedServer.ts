@@ -1,6 +1,6 @@
 import { Execute } from '../../../../domain/interfaces/Event';
 import { infoEmbed } from '../../../../domain/formats/infoEmbed';
-import { GuildMember, User } from 'discord.js';
+import { GuildMember } from 'discord.js';
 
 export const name = 'UserJoinedServer';
 export const trigger = 'guildMemberAdd';

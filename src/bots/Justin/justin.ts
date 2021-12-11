@@ -3,12 +3,9 @@ import { status } from 'minecraft-server-util';
 import { JavaStatusResponse } from 'minecraft-server-util/dist/types/JavaStatusResponse';
 import {
   BaseGuildTextChannel,
-  Channel,
   ColorResolvable,
-  Guild,
   Message,
   MessageEmbed,
-  TextChannel,
 } from 'discord.js';
 
 let Justin: Bot;

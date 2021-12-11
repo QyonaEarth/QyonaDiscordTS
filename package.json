@@ -1,11 +1,11 @@
 {
-  "name": "discordts-template",
+  "name": "qyonadiscordbot",
   "version": "1.0.0",
   "description": "A discord bot template for typescript, start building as soon as possible!",
   "main": "build/index.js",
   "private": true,
   "config": {
-    "daemon": "DiscordTS-Template"
+    "daemon": "QyonaDiscordBot"
   },
   "scripts": {
     "build:dev": "tsc --watch",

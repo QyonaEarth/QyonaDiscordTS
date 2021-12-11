@@ -5,6 +5,7 @@ export interface ConfigInterface {
   QyonaSvLogo: string;
   infoChannelID: string;
   ruleChannelID: string;
+  loreChannelID: string;
   welcomeChannelID: string;
   suggestChannelID: string;
   statusChannelID: string;

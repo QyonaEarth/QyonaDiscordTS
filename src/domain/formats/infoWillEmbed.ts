@@ -1,18 +1,12 @@
 import { ColorResolvable, MessageEmbed } from 'discord.js';
-import {
-  Embed,
-  IconStaff,
-  QyonaColor,
-  QyonaFooter,
-  QyonaPortrait,
-} from './embed';
+import { Embed, IconInfo, WillColor, WillFooter, WillPortrait } from './embed';
 
-export class staffEmbed implements Embed {
-  private readonly color: ColorResolvable = QyonaColor;
-  private readonly type: string = 'Staff';
-  private readonly typeIcon: string = IconStaff;
-  private readonly portrait: string = QyonaPortrait;
-  private readonly footer: string = QyonaFooter;
+export class infoWillEmbed implements Embed {
+  private readonly color: ColorResolvable = WillColor;
+  private readonly type: string = 'Info';
+  private readonly typeIcon: string = IconInfo;
+  private readonly portrait: string = WillPortrait;
+  private readonly footer: string = WillFooter;
 
   public embed: MessageEmbed;
 

@@ -1,12 +1,12 @@
 import { ColorResolvable, MessageEmbed } from 'discord.js';
-import { Embed } from './embed';
+import { Embed, IconNews, WillColor, WillFooter, WillPortrait } from './embed';
 
-export class infoEmbed implements Embed {
-  private readonly color: ColorResolvable = '#09bcd8';
-  private readonly type: string = 'Info';
-  private readonly typeIcon: string = 'https://i.imgur.com/7NJrl7C.png';
-  private readonly portrait: string = 'https://i.imgur.com/2yHOYsc.png';
-  private readonly footer: string = 'Will - Emisario de las tierras de Qyona';
+export class newsEmbed implements Embed {
+  private readonly color: ColorResolvable = WillColor;
+  private readonly type: string = 'News';
+  private readonly typeIcon: string = IconNews;
+  private readonly portrait: string = WillPortrait;
+  private readonly footer: string = WillFooter;
 
   public embed: MessageEmbed;
 

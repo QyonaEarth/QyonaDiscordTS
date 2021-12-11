@@ -1,12 +1,18 @@
 import { ColorResolvable, MessageEmbed } from 'discord.js';
-import { Embed } from './embed';
+import {
+  Embed,
+  IconInfo,
+  JustinColor,
+  JustinFooter,
+  JustinPortrait,
+} from './embed';
 
 export class infoEmbed implements Embed {
-  private readonly color: ColorResolvable = '#3f0d05';
+  private readonly color: ColorResolvable = JustinColor;
   private readonly type: string = 'Info';
-  private readonly typeIcon: string = 'https://i.imgur.com/JVvF4Dl.png';
-  private readonly portrait: string = 'https://i.imgur.com/4VrPDsF.png';
-  private readonly footer: string = "Justin - Guardián de Qyona's Earth";
+  private readonly typeIcon: string = IconInfo;
+  private readonly portrait: string = JustinPortrait;
+  private readonly footer: string = JustinFooter;
 
   public embed: MessageEmbed;
 

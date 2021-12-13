@@ -10,9 +10,14 @@ export const category = 'None';
 export const execute: Execute = async (bot: Bot, message: Message) => {
   if (!message || !message.guild || !message.member) return;
 
-  const channel = message.guild.channels.cache.find(
+  let channel = message.guild.channels.cache.find(
     (c) => c.id == bot.config.suggestChannelID
   );
+
+  if (message.channelId == bot.config.suggestPrivateChannelID)
+    channel = message.guild.channels.cache.find(
+      (c) => c.id == bot.config.suggestPrivateChannelID
+    );
 
   if (!channel || !channel.isText()) return;
 
@@ -23,7 +28,7 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
 
   if (!sugerencia) {
     const response: Message<boolean> = await message.channel.send(
-      `<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}sugerencias {Tu sugerencia}!!`
+      `<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}sugerencia {Tu sugerencia}!!`
     );
     setTimeout(() => response.delete(), 3 * 1000);
     message.delete();

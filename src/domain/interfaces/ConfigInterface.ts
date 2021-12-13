@@ -10,6 +10,7 @@ export interface ConfigInterface {
   loreChannelID: string;
   welcomeChannelID: string;
   suggestChannelID: string;
+  suggestPrivateChannelID: string;
   statusChannelID: string;
   statusMessageID: string;
 }

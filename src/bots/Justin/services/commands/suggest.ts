@@ -3,7 +3,7 @@ import { Bot } from '../../../../domain/bot';
 import { Execute } from '../../../../domain/interfaces/Command';
 import { infoEmbed } from '../../../../domain/formats/infoEmbed';
 
-export const name = 'suggestion';
+export const name = 'suggest';
 export const description = 'Format a suggestion!';
 export const category = 'None';
 

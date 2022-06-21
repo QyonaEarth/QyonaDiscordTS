@@ -19,6 +19,6 @@ export const QyonaPortrait = 'https://i.imgur.com/vCh2ng2.png';
 export const WillPortrait = 'https://i.imgur.com/2yHOYsc.png';
 export const JustinPortrait = 'https://i.imgur.com/4VrPDsF.png';
 
-export const QyonaFooter = "Qyona - Diosa de Qyona's Earth";
+export const QyonaFooter = "Qyona - Goddess on Qyona's Network";
 export const WillFooter = 'Will - Emisario de las tierras de Qyona';
-export const JustinFooter = "Justin - Guardián de Qyona's Earth";
+export const JustinFooter = "Justin -  Guardian on Qyona's Network";

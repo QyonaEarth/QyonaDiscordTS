@@ -3,7 +3,7 @@ import { Bot } from '../../../../domain/bot';
 import { Execute } from '../../../../domain/interfaces/Command';
 import { infoEmbed } from '../../../../domain/formats/infoEmbed';
 
-export const name = 'sugerencia';
+export const name = 'suggestion';
 export const description = 'Format a suggestion!';
 export const category = 'None';
 
@@ -23,22 +23,22 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
 
   //get rid of the prefix and separating the content on an array so it's easier to work with it
   const args: string[] = message.content.split(/ +/);
-  const sugerencia: string | undefined = args.slice(1).join(' ');
+  const suggestion: string | undefined = args.slice(1).join(' ');
   const embed = new infoEmbed();
 
-  if (!sugerencia) {
+  if (!suggestion) {
     const response: Message<boolean> = await message.channel.send(
-      `<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}sugerencia {Tu sugerencia}!!`
+      `<@${message.author.id}> To use this command correctly use ${bot.config.prefix}suggestion {Your suggestion}!!`
     );
     setTimeout(() => response.delete(), 3 * 1000);
     message.delete();
     return;
   }
 
-  embed.setTitle(`Sugerencia de ${message.member.user.username}!`);
-  embed.setBody(`${sugerencia}`);
-  embed.addField('Si estas a favor', 'Reacciona con ✅');
-  embed.addField('Si estas en contra', 'Reacciona con ❌');
+  embed.setTitle(`${message.member.user.username}'s suggestion!`);
+  embed.setBody(`${suggestion}`);
+  embed.addField('If you agree', 'React with ✅');
+  embed.addField('If you are against', 'React with ❌');
 
   const MessageEmbed = await channel.send({ embeds: [embed.embed] });
   MessageEmbed.react('✅');

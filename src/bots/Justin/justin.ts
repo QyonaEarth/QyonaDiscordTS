@@ -68,22 +68,22 @@ async function getStatusEmbed(
   const embed = new MessageEmbed();
   if (!res) {
     embed.setColor('#ff0000' as ColorResolvable);
-    embed.setTitle('El servidor se encuentra cerrado :(');
+    embed.setTitle('Server is currently closed :(');
     embed.setThumbnail(Justin.config.QyonaSvLogo);
     embed.setDescription(
-      'Vuelve pronto! Estamos trabajando duro para que pronto vuelva a estar online!'
+      'Check it again later! We are working hard to open it again soon!'
     );
     return embed;
   }
 
   embed.setColor('#00ff00' as ColorResolvable);
-  embed.setTitle('Servidor abierto! :D');
+  embed.setTitle('Server open! :D');
   embed.setThumbnail(Justin.config.QyonaSvLogo);
   embed.setDescription(
-    'Apresurate! Te estan esperando muchas aventuras dentro de las tierras de Qyona!'
+    "Hurry! There's a lot of adventures waiting for you on Qyona's lands!!"
   );
   embed.addField(
-    'Aventureros activos',
+    'Active Adventurers',
     `${res.players.online}/${res.players.max}`
   );
 
@@ -97,7 +97,7 @@ async function getStatusEmbed(
     if (it != res.players.sample.length - 1) userString += ', ';
   }
 
-  embed.addField('Lista de Aventureros', userString);
+  embed.addField('Adventurers list', userString);
 
   return embed;
 }

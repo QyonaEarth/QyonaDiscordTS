@@ -19,26 +19,21 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
   if (!channel || !channel.isText()) return;
 
   const embed1 = new infoWillEmbed();
-  embed1.setTitle('Hace mucho tiempo...');
-  embed1.setBody(`...unos aventureros llegaron a las tierras de Qyona con afán de explorar nuevos territorios, y en su viaje se encontrarón con una ciudad que poseía en su interior un palacio.
+  embed1.setTitle('Where am I...?');
+  embed1.setBody(`- Hmm? What is this site? *Superior smile* Well...I'll explain it to you.
 
-  Dentro de ese palacio se encontraba **Qyona**, la diosa que habitaba y protegía esas tierras.
-  Tras conversar y hacer ciertos favores que les pidió la diosa, esta decidió recompensar a los aventureros.
-  Les dió a cada uno poderes de **Semi Dios**, esperando que siguieran a su lado, protegiendo las tierras donde ella vivía, y ofreciéndoles completa hospitalidad para que se quedaran a vivir el ellas.
-  
-  Los aventureros aceptaron con gusto el obsequio y la gratitud de Qyona, y se quedaron para proteger con su vida misma esas tierras.
-  
-  Tras el paso del tiempo, los aventureros que llegaban se iban reduciendo hasta que no llegó ninguno nuevo. Los que se convirtieron en Semi Dioses no poseían el poder suficiente para proteger las tierras de tanto mal y de los monstruos que avanzaban.
-  
-  Las tierras cercanas al palacio se corrompían poco a poco con magia oscura y seres malignos.
-  A Qyona y a los Semi Dioses se agotaban les agotaban las fuerzas, y como último contraataque para mantener lo que quedaba de tierra libre de todo mal y por toda la eternidad, decidieron unir fuerzas y levantar la tierra del mismísimo suelo.
-  
-  Todos ellos entregaron su alma y sus últimos esfuerzos en fusionarse con la tierra y la naturaleza, levantando así las pesadas rocas, creando un inmenso lago que separaba todo mal de lo que ahora era una isla en el cielo.
-  
-  La leyenda dice que hoy en día, sigue habiendo rastro de Qyona aunque nadie puede confirmar el haberla visto,  y que si llegas a ser tan fuerte como lo fueron los primeros aventureros y liberas sus tierras del mal, también recompensará a los elegidos."
-  
-  - Os ha gustado la leyenda? Obvio que si  -*se ríe*-
-  - La próxima vez os contaré otra historia...`);
+Once upon a time, not so very long ago, the Gods decided to give young Qyona a place where the sunsets were the most beautiful ones in this cosmos. Qyona, baptized her new lands as *Ishan*
+
+After a long time, some adventurers began to pass through their lands, on exploration trips. She offered them the chance to settle down and create life to beautify and give more than visual meaning to Ishan.
+Only a few considered staying to live, and even fewer decided to do so, but little by little, they increased in number and improved their skills.
+Along with the adventurers, new life forms arose from nature. Monsters and wild animals that made it difficult for the emerging cities to expand, and more fauna and flora to discover.
+Various races emerged, such as elves, fairies... and joined forces according to their ideals to combat the dark spirits. They polished their skills and improved their weapons, also they made combat strategies regardless of the nature of each one. Peace reigned within each kingdom, and was restored in the unnamed fields...until a conflict erupted with a neighboring kingdom.
+
+Fulfilling her new mission as a goddess, Qyona used her powers and created a battle zone, a Sanctuary of Gods, where both parties could fight without harming the rest of the kingdoms, under the condition that she will be the one maintaining justice.
+Justice and superiority would decide the outcome of the battle, and balance the differences between the kingdoms.
+
+- If you accept the conditions of the Goddess, I am sure that she will let you live and start your adventure in Ishan.
+oh! By the way, it's 5 suns *Smiles mischievously*`);
 
   message.delete();
   channel.send({ embeds: [embed1.embed] });

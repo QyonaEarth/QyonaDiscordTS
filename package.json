@@ -36,7 +36,6 @@
   "author": "Leivaa21",
   "license": "MIT",
   "devDependencies": {
-    "@types/dotenv": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "dotenv": "^10.0.0",

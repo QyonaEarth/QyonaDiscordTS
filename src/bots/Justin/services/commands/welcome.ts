@@ -15,7 +15,7 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
 
   if (message.mentions.users.size != 1) {
     const response: Message<boolean> = await message.channel.send(
-      `<@${message.author.id}> Para utilizar este comando utiliza ${bot.config.prefix}welcome @usuario!!`
+      `<@${message.author.id}> To use this command correctly use ${bot.config.prefix}welcome @user!!`
     );
     setTimeout(() => response.delete(), 3 * 1000);
     message.delete();
@@ -31,17 +31,17 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
   message.delete();
 
   const embed = new infoEmbed();
-  embed.setTitle(`Bienvenido ${user.username}!`);
-  embed.setBody(
-    `Siempre es reconfortante ver nuevos aventureros por aquí!\nEspero que su estancia por aquí sea épica`
+  embed.setTitle(`Welcome ${user.username}!`);
+  embed.setBody(`It's always refreshing to see new adventurers around here!
+    I hope your stay here is epic
+  `);
+  embed.addField(
+    'Information',
+    "Don't forget to check <#834712578802450452> the to find out all the information you need!"
   );
   embed.addField(
-    'Información',
-    'No olvide consultar el portal <#834712578802450452> para informarse!'
-  );
-  embed.addField(
-    'Reglas',
-    'Si no quiere que los dioses cargen sobre usted, eche un vistazo a los escritos de <#909745799737528360> para informarse!'
+    'Rules',
+    "If you don't want the gods to punish you, take a look at the writings of <#909745799737528360> to find out! para informarse!"
   );
   channel.send({ content: `${user}`, embeds: [embed.embed] });
   return;

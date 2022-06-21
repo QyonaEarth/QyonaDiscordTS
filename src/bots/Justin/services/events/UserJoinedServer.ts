@@ -25,17 +25,17 @@ export const execute: Execute = async (bot, message) => {
   if (!channel || !channel.isText()) return;
 
   const embed = new infoEmbed();
-  embed.setTitle(`Bienvenido ${member.user.username}!`);
-  embed.setBody(
-    `Siempre es reconfortante ver nuevos aventureros por aquí!\nEspero que su estancia por aquí sea épica`
+  embed.setTitle(`Welcome ${member.user.username}!`);
+  embed.setBody(`It's always refreshing to see new adventurers around here!
+    I hope your stay here is epic
+  `);
+  embed.addField(
+    'Information',
+    "Don't forget to check <#834712578802450452> the to find out all the information you need!"
   );
   embed.addField(
-    'Información',
-    'No olvide consultar el portal <#834712578802450452> para informarse!'
-  );
-  embed.addField(
-    'Reglas',
-    'Si no quiere que los dioses cargen sobre usted, eche un vistazo a los escritos de <#909745799737528360> para informarse!'
+    'Rules',
+    "If you don't want the gods to punish you, take a look at the writings of <#909745799737528360> to find out! para informarse!"
   );
   channel.send({ content: `${member.user}`, embeds: [embed.embed] });
   return;

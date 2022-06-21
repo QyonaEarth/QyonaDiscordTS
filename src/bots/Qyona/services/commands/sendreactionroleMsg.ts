@@ -19,8 +19,8 @@ export const execute: Execute = async (bot: Bot, message: Message) => {
   if (!channel || !channel.isText()) return;
 
   const embed1 = new staffEmbed();
-  embed1.setBody(`Reacciona con 🆗 a este mensaje si aceptas estas peticiones.
-  ¡Suerte en tu viaje aventurero!`);
+  embed1.setBody(`React with 🆗 to this message if you accept this rules.
+Good luck with your journey adventurer!`);
 
   message.delete();
   const rrMessage: Message = await channel.send({ embeds: [embed1.embed] });

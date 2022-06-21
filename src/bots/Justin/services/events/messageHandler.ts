@@ -21,10 +21,10 @@ export const execute: Execute = async (bot, message: Message) => {
 
   if (
     message.channelId == bot.config.suggestChannelID &&
-    UserCommand != 'sugerencia'
+    UserCommand != 'suggest'
   ) {
     const response: Message<boolean> = await message.channel.send(
-      `<@${message.author.id}> En este lugar solo se admiten sugerencias!`
+      `<@${message.author.id}> This channel is reserved for suggestions!`
     );
     setTimeout(() => response.delete(), 3 * 1000);
     message.delete();

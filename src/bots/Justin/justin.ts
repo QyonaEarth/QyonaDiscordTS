@@ -27,7 +27,7 @@ function handleStatus() {
 }
 
 async function getStatus(): Promise<JavaStatusResponse | undefined> {
-  const response = await status('qyonasearth.es', 25565);
+  const response = await status('dyndns.qyonasearth.es', 25565);
   return response;
 }
 
